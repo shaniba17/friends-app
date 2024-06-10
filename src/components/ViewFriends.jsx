@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import axios from 'axios'
 
@@ -6,7 +6,7 @@ const ViewFriends = () => {
     const[data,changedata]=useState([])
     const fetchData=()=>
         {
-            axios.post("https://friendsapi-re5a.onrender.com/adddata").then(
+            axios.get("https://friendsapi-re5a.onrender.com/view").then(
                 (response)=>{
                     console.log(response.data)
                     changedata(response.data)
@@ -18,7 +18,8 @@ const ViewFriends = () => {
                 }
             ).finally()
         }
-    return (
+        useEffect(()=>{fetchData()},[])
+            return (
         <div>
             <NavBar/>
             <div className="container">
