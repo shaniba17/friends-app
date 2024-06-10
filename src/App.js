@@ -1,13 +1,18 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddFriends from './components/AddFriends';
 import ViewFriends from './components/ViewFriends';
 
 function App() {
   return (
-    <div>
-      <AddFriends/>
-      <ViewFriends/>
-    </div>
+   
+   <BrowserRouter>
+   <Routes>
+    <Route path='/' element={<AddFriends/>}/>
+    <Route path='/view' element={<ViewFriends/>}/>
+   </Routes>
+   </BrowserRouter>
+  
   );
 }
 
